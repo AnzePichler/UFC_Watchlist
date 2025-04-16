@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>UFC Fighter Watchlist</title>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Mrgl/dE+Z9/zY+GK/+MSRW+vNsr0v6rbq1ZQcUjdWcw5V8cR3E55ajcoRG1I8w0w"
+      crossorigin="anonymous"
+    >
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="mb-4">UFC Fighter Watchlist</h1>
+
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-info">
+            {% for message in messages %}
+              <div>{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <div class="mb-3">
+        <a href="{{ url_for('add_fighter') }}" class="btn btn-primary">Add New Fighter</a>
+      </div>
+
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Nickname</th>
+            <th>Division</th>
+            <th>Record</th>
+            <th>Next Fight</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fighter in fighters %}
+          <tr>
+            <td>{{ fighter.name }}</td>
+            <td>{{ fighter.nickname }}</td>
+            <td>{{ fighter.division }}</td>
+            <td>
+              {{ fighter.record.wins }} - {{ fighter.record.losses }} - {{ fighter.record.draws }}
+            </td>
+            <td>
+              {% if fighter.next_fight %}
+                <strong>Event:</strong> {{ fighter.next_fight.event }}<br>
+                <strong>Date:</strong> {{ fighter.next_fight.date }}<br>
+                <strong>Location:</strong> {{ fighter.next_fight.location }}<br>
+                <strong>Opponent:</strong> {{ fighter.next_fight.opponent }}
+              {% else %}
+                N/A
+              {% endif %}
+            </td>
+            <td>
+              <!-- Using a form with a Bootstrap button -->
+              <form action="{{ url_for('delete_fighter', index=loop.index0) }}" method="post">
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bootstrap and dependencies JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdLc+TYssupZ7mWw03I+1Kg63lZCWwThcSeD2G3ZUz7zZB1zt53D5S8lTlILPQ"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-5Y60v1CzVXxgLcUQeYdC05b//zb3+9KXJ8JPOF7FNEqnlrJukzmvDu4WwkxYk2BM"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
