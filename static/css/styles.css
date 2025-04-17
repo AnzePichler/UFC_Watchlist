@@ -79,7 +79,6 @@ body {
   .photo-cell {
     width: 60px;
     text-align: center;
-    vertical-align: top;
   }
   .photo-cell img {
     width: 128px;
