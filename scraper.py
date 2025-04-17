@@ -2,7 +2,6 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-
 # =======================
 # Scraper Functions
 # =======================
@@ -10,176 +9,142 @@ from bs4 import BeautifulSoup
 def scrape_sherdog(url):
     """
     Scrape the fighter page on Sherdog and extract:
+      - profile image URL,
       - nickname,
       - division,
       - record (wins, losses, draws),
-      - next_fight (event, date, location, opponent)
+      - next_fight (event, date, location, opponent name, opponent image, opponent record)
     Returns a dictionary with these keys. Name and URL are not touched.
     """
     headers = {"User-Agent": "Mozilla/5.0"}
-
     try:
         res = requests.get(url, headers=headers)
-        if res.status_code != 200:
-            print(f"Error fetching {url}: status code {res.status_code}")
-            return None
+        res.raise_for_status()
     except Exception as e:
-        print(f"Request failed for {url}: {e}")
+        print(f"Error fetching {url}: {e}")
         return None
 
     soup = BeautifulSoup(res.text, "html.parser")
 
+    # === Extract Main Profile Image ===
+    img_tag = soup.find("img", class_="profile-image photo")
+    if img_tag and img_tag.has_attr('src'):
+        src = img_tag['src']
+        image_url = src if src.startswith('http') else f"https://www.sherdog.com{src}"
+    else:
+        image_url = None
+
     # === Extract Fighter Bio Info ===
-    # Locate the bio container – typically the "fighter-right" div.
     bio_div = soup.find("div", class_="fighter-right")
+    nickname = division = ""
+    record = {"wins": 0, "losses": 0, "draws": 0}
 
     if bio_div:
-        # Extract nickname from an element with class "nickname".
-        nickname_tag = bio_div.find("span", class_="nickname")
-        nickname = nickname_tag.get_text(strip=True) if nickname_tag else ""
-
-        # Extract division:
-        # In the bio, there's a div "association-class" which lists association and then CLASS.
-        assoc_div = bio_div.find("div", class_="association-class")
-        if assoc_div:
-            # We assume that the last <a> element within it has the weightclass (division).
-            a_tags = assoc_div.find_all("a")
+        nn = bio_div.find("span", class_="nickname")
+        nickname = nn.get_text(strip=True) if nn else ""
+        assoc = bio_div.find("div", class_="association-class")
+        if assoc:
+            a_tags = assoc.find_all("a")
             if a_tags:
                 division = a_tags[-1].get_text(strip=True)
-            else:
-                division = ""
-        else:
-            division = ""
-
-        # Extract record from the "winsloses-holder" block.
-        record = {"wins": 0, "losses": 0, "draws": 0}
-        winsloses_holder = bio_div.find("div", class_="winsloses-holder")
-        if winsloses_holder:
-            # Extract wins
-            wins_div = winsloses_holder.find("div", class_="wins")
-            if wins_div:
-                win_box = wins_div.find("div", class_="winloses win")
-                if win_box:
-                    spans = win_box.find_all("span")
-                    if len(spans) >= 2:
-                        try:
-                            record["wins"] = int(spans[1].get_text(strip=True))
-                        except ValueError:
-                            record["wins"] = 0
-            # Extract losses
-            loses_div = winsloses_holder.find("div", class_="loses")
-            if loses_div:
-                lose_box = loses_div.find("div", class_="winloses lose")
-                if lose_box:
-                    spans = lose_box.find_all("span")
-                    if len(spans) >= 2:
-                        try:
-                            record["losses"] = int(spans[1].get_text(strip=True))
-                        except ValueError:
-                            record["losses"] = 0
-            # Draws may not be present; default to 0.
-    else:
-        nickname = ""
-        division = ""
-        record = {"wins": 0, "losses": 0, "draws": 0}
+        wl = bio_div.find("div", class_="winsloses-holder")
+        if wl:
+            win_div = wl.find("div", class_="winloses win")
+            if win_div:
+                spans = win_div.find_all("span")
+                if len(spans) >= 2:
+                    try:
+                        record["wins"] = int(spans[1].get_text(strip=True))
+                    except ValueError:
+                        pass
+            lose_div = wl.find("div", class_="winloses lose")
+            if lose_div:
+                spans = lose_div.find_all("span")
+                if len(spans) >= 2:
+                    try:
+                        record["losses"] = int(spans[1].get_text(strip=True))
+                    except ValueError:
+                        pass
 
     # === Extract Upcoming Fight Info ===
     fight_card = soup.find("div", class_="fight_card_preview")
+    next_fight = None
     if fight_card:
-        # Extract Event Name (e.g., from <h2 itemprop="name">UFC on ESPN 66</h2>)
-        event_name_tag = fight_card.find("h2", itemprop="name")
-        event_name = event_name_tag.get_text(strip=True) if event_name_tag else "N/A"
-
-        # Extract Date and Location from the "date_location" div.
-        date_location_div = fight_card.find("div", class_="date_location")
-        if date_location_div:
-            start_date_meta = date_location_div.find("meta", itemprop="startDate")
-            date_text = (start_date_meta["content"].split("T")[0]
-                         if start_date_meta and start_date_meta.has_attr("content")
-                         else "N/A")
-            location_em = date_location_div.find("em", itemprop="location")
-            location_text = " ".join(location_em.stripped_strings) if location_em else "N/A"
+        # Event name
+        ev = fight_card.find("h2", itemprop="name")
+        event_name = ev.get_text(strip=True) if ev else ""
+        # Date & Location
+        dl = fight_card.find("div", class_="date_location")
+        if dl:
+            sd = dl.find("meta", itemprop="startDate")
+            date_text = sd["content"].split("T")[0] if sd and sd.has_attr("content") else ""
+            loc = dl.find("em", itemprop="location")
+            location_text = " ".join(loc.stripped_strings) if loc else ""
         else:
-            date_text = "N/A"
-            location_text = "N/A"
-
-        # Extract Opponent's Name: search in the fight block for the right-side fighter.
-        fight_div = fight_card.find("div", class_="fight")
-        if fight_div:
-            fighter_right = fight_div.find("div", class_="fighter right_side")
-            if fighter_right:
-                opponent_name_tag = fighter_right.find("span", itemprop="name")
-                opponent_name = opponent_name_tag.get_text(strip=True) if opponent_name_tag else "N/A"
-            else:
-                opponent_name = "N/A"
-        else:
-            opponent_name = "N/A"
-
+            date_text = location_text = ""
+        # Opponent info
+        fight = fight_card.find("div", class_="fight")
+        opponent_name = opponent_image_url = opponent_record = ""
+        if fight:
+            opp = fight.find("div", class_="fighter right_side")
+            if opp:
+                on = opp.find("span", itemprop="name")
+                opponent_name = on.get_text(strip=True) if on else ""
+                img = opp.find("img", itemprop="image")
+                if img and img.has_attr('src'):
+                    src = img['src']
+                    opponent_image_url = src if src.startswith('http') else f"https://www.sherdog.com{src}"
+                rec = opp.find("span", class_="record")
+                opponent_record = rec.get_text(strip=True).split(" ")[0] if rec else ""
         next_fight = {
             "event": event_name,
             "date": date_text,
             "location": location_text,
-            "opponent": opponent_name
+            "opponent": opponent_name,
+            "opponent_image_url": opponent_image_url,
+            "opponent_record": opponent_record
         }
-    else:
-        next_fight = None
 
     return {
+        "image_url": image_url,
         "nickname": nickname,
         "division": division,
         "record": record,
         "next_fight": next_fight
     }
 
-
-# If needed, additional scraper functions for other websites can be added here.
-
 # =======================
 # Master Scraping Routine
 # =======================
 
 def main():
-    # Load existing fighter data from fighters.json
     with open("fighters.json", "r", encoding="utf-8") as f:
         fighters = json.load(f)
 
-    # Map website identifiers to their respective scraper functions.
-    scrapers = {
-        "sherdog": scrape_sherdog
-        # Add other mappings for different sites if needed.
-    }
+    scrapers = {"sherdog": scrape_sherdog}
 
     for fighter in fighters:
-        website = fighter.get("website")
+        site = fighter.get("website")
         url = fighter.get("url")
-        name = fighter.get("name", "Unknown Fighter")
-
-        if not url or not website:
-            print(f"Skipping {name}: missing URL or website data.")
+        name = fighter.get("name", "Unknown")
+        if not site or not url or site not in scrapers:
+            print(f"Skipping {name}: missing or unsupported source.")
             continue
-        if website not in scrapers:
-            print(f"Skipping {name}: no scraper available for website '{website}'.")
-            continue
-
-        print(f"Scraping info for {name} from {website}...")
-        scraper_func = scrapers[website]
-        scraped_info = scraper_func(url)
-        if scraped_info:
-            # Update fighter entry while preserving "name" and "url".
-            fighter["nickname"] = scraped_info.get("nickname", fighter.get("nickname", ""))
-            fighter["division"] = scraped_info.get("division", fighter.get("division", ""))
-            fighter["record"] = scraped_info.get("record", fighter.get("record", {"wins": 0, "losses": 0, "draws": 0}))
-            fighter["next_fight"] = scraped_info.get("next_fight", fighter.get("next_fight"))
-            print(f"Updated info for {name}.")
+        print(f"Scraping {name}...")
+        info = scrapers[site](url)
+        if info:
+            fighter["image_url"] = info.get("image_url")
+            fighter["nickname"] = info.get("nickname", fighter.get("nickname"))
+            fighter["division"] = info.get("division", fighter.get("division"))
+            fighter["record"] = info.get("record", fighter.get("record"))
+            fighter["next_fight"] = info.get("next_fight", fighter.get("next_fight"))
+            print(f"Updated {name}.")
         else:
-            print(f"No updated info found for {name}. Keeping existing data.")
+            print(f"No data for {name}.")
 
-    # Overwrite the existing fighters.json file with the updated data.
     with open("fighters.json", "w", encoding="utf-8") as f:
         json.dump(fighters, f, ensure_ascii=False, indent=2)
-
-    print("Scraping complete. fighters.json has been updated.")
-
+    print("All done.")
 
 if __name__ == "__main__":
     main()

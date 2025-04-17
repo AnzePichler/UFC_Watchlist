@@ -10,7 +10,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Andre-Lima-201199",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20230914061801_Andre_Lima.JPG"
   },
   {
     "name": "Joshua Van",
@@ -27,8 +28,11 @@
       "event": "UFC 316",
       "date": "2025-06-07",
       "location": "Prudential Center , Newark, New Jersey, United States",
-      "opponent": "Bruno Silva"
-    }
+      "opponent": "Bruno Silva",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1648259375914_20220325094930_Bruno_Bulldog_Silva.JPG",
+      "opponent_record": "14-6-2"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1660600851joshua-van.jpg"
   },
   {
     "name": "Manel Kape",
@@ -45,8 +49,11 @@
       "event": "UFC 317",
       "date": "2025-06-28",
       "location": "T-Mobile Arena , Las Vegas, Nevada, United States",
-      "opponent": "Brandon Royval"
-    }
+      "opponent": "Brandon Royval",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1648256661166_20220325090416_Brandon_Royval_ff.JPG",
+      "opponent_record": "17-7-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220401082417_Manel_Kape_ff.JPG"
   },
   {
     "name": "Aleksandre Topuria",
@@ -59,7 +66,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Aleksandre-Topuria-199421",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1714330402Snapinsta.app_354873062_787729512822642_5883491592653800470_n_1080.jpg"
   },
   {
     "name": "Farid Basharat",
@@ -72,7 +80,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Farid-Basharat-222641",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220414012136_Farid_Basharat.JPG"
   },
   {
     "name": "Marcus McGhee",
@@ -85,7 +94,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Marcus-McGhee-122153",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20221120105535_Marcus_McGhee1.JPG"
   },
   {
     "name": "Vinicius Oliveira",
@@ -98,7 +108,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Vinicius-Oliveira-139517",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20240625122007_Vinicius_Oliveira_ff.JPG"
   },
   {
     "name": "Mairon Santos",
@@ -111,7 +122,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Mairon-Santos-297155",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1643409507Mairon_Santos.jpg"
   },
   {
     "name": "Kevin Vallejos",
@@ -124,7 +136,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Kevin-Vallejos-391233",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1685630872730a6bc7-3c7c-4bc1-8d4e-411b604ba1e9.jpg"
   },
   {
     "name": "Felipe Lima",
@@ -137,7 +150,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Felipe-Lima-205627",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1718881718IMG_2683.png"
   },
   {
     "name": "Jean Silva",
@@ -150,7 +164,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Jean-Silva-239947",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20240625120346_Jean_Silva_ff.JPG"
   },
   {
     "name": "Bolaji Oki",
@@ -163,7 +178,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Bolaji-Oki-276669",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1521746272oki.jpg"
   },
   {
     "name": "Charlie Campbell",
@@ -176,7 +192,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Charlie-Campbell-286213",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1596767684Charlie_Campbell.png"
   },
   {
     "name": "Chris Duncan",
@@ -189,7 +206,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Chris-Duncan-74346",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20230714052220_Chris_Duncan_ff.JPG"
   },
   {
     "name": "Ignacio Bahamondes",
@@ -202,7 +220,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Ignacio-Bahamondes-221417",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20230408023908_Ignacio_Bahamondes_ff.JPG"
   },
   {
     "name": "Joel Alvarez",
@@ -219,8 +238,11 @@
       "event": "UFC 315",
       "date": "2025-05-10",
       "location": "Bell Centre , Montreal, Quebec, Canada",
-      "opponent": "Benoit St. Denis"
-    }
+      "opponent": "Benoit St. Denis",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1710021657Benoit_St_Denis_ff.jpg",
+      "opponent_record": "13-3-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220401035431_Joel_Alvarez_ff.JPG"
   },
   {
     "name": "Mauricio Ruffy",
@@ -233,7 +255,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Mauricio-Ruffy-192545",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20240929045715_Mauricio_Ruffy_ff.JPG"
   },
   {
     "name": "Sam Patterson",
@@ -246,7 +269,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Sam-Patterson-141735",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220929022554_Sam_Patterson_ff.JPG"
   },
   {
     "name": "Oban Elliot",
@@ -263,8 +287,11 @@
       "event": "UFC on ESPN 68",
       "date": "2025-05-31",
       "location": "UFC Apex , Las Vegas, Nevada, United States",
-      "opponent": "Ramiz Brahimaj"
-    }
+      "opponent": "Ramiz Brahimaj",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1664602959Ramiz_Brahimaj_ff.jpg",
+      "opponent_record": "11-5-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/155639330958606437_2416227005064119_2600704621596901376_n.jpg"
   },
   {
     "name": "Gabriel Bonfim",
@@ -277,7 +304,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Gabriel-Bonfim-185083",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220929075630_Gabriel_Bonfim_ff.JPG"
   },
   {
     "name": "Carlos Prates",
@@ -294,8 +322,11 @@
       "event": "UFC on ESPN 66",
       "date": "2025-04-26",
       "location": "T-Mobile Center , Kansas City, Missouri, United States",
-      "opponent": "Ian Garry"
-    }
+      "opponent": "Ian Garry",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1708042846Ian_Garry_ff.jpg",
+      "opponent_record": "15-1-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20240727044731_Carlos_Prates_ff.JPG"
   },
   {
     "name": "Jack Della Maddalena",
@@ -312,8 +343,11 @@
       "event": "UFC 315",
       "date": "2025-05-10",
       "location": "Bell Centre , Montreal, Quebec, Canada",
-      "opponent": "Belal Muhammad"
-    }
+      "opponent": "Belal Muhammad",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1648251786691_20220325074300_Belal_Muhammad_ff.JPG",
+      "opponent_record": "24-3-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220922042956_Jack_Della_Maddalena_ff.JPG"
   },
   {
     "name": "Azamat Bekoev",
@@ -330,8 +364,11 @@
       "event": "UFC on ESPN 67",
       "date": "2025-05-03",
       "location": "Wells Fargo Arena , Des Moines, Iowa, United States",
-      "opponent": "Ryan Loder"
-    }
+      "opponent": "Ryan Loder",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1710011149Ryan_Loder.jpg",
+      "opponent_record": "7-1-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1734537711IMG_3228.jpeg"
   },
   {
     "name": "Ikram Aliskerov",
@@ -348,8 +385,11 @@
       "event": "UFC on ESPN 66",
       "date": "2025-04-26",
       "location": "T-Mobile Center , Kansas City, Missouri, United States",
-      "opponent": "Andre Muniz"
-    }
+      "opponent": "Andre Muniz",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1648840559628_20220401031551_Andre_Muniz_ff.JPG",
+      "opponent_record": "24-6-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20230714052514_Ikram_Aliskerov_ff.JPG"
   },
   {
     "name": "Marco Tulio",
@@ -362,7 +402,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Marco-Tulio-263543",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1535786333marco.jpg"
   },
   {
     "name": "Cesar Almeida",
@@ -375,7 +416,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Cesar-Almeida-217983",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1624749185almeida.jpg"
   },
   {
     "name": "Caio Borralho",
@@ -388,7 +430,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Caio-Borralho-188043",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220922053424_Caio_Borralho_ff.JPG"
   },
   {
     "name": "Mingyang Zhang",
@@ -405,8 +448,11 @@
       "event": "UFC on ESPN 66",
       "date": "2025-04-26",
       "location": "T-Mobile Center , Kansas City, Missouri, United States",
-      "opponent": "Anthony Smith"
-    }
+      "opponent": "Anthony Smith",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1631570165Anthony-Smith.png",
+      "opponent_record": "38-21-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1650982807mingyang-zhang.jpg"
   },
   {
     "name": "Oumar Sy",
@@ -423,8 +469,11 @@
       "event": "UFC Fight Night 257",
       "date": "2025-06-14",
       "location": "State Farm Arena , Atlanta, Georgia, United States",
-      "opponent": "Alonzo Menifield"
-    }
+      "opponent": "Alonzo Menifield",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1663878195Alonzo_Menifield_ff.jpg",
+      "opponent_record": "16-5-1"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20240313040430_Snapinsta_app_296393699_1525221041261407_1944420744493347897_n_1080.JPG"
   },
   {
     "name": "Azamat Murzakanov",
@@ -441,8 +490,11 @@
       "event": "UFC 316",
       "date": "2025-06-07",
       "location": "Prudential Center , Newark, New Jersey, United States",
-      "opponent": "Johnny Walker"
-    }
+      "opponent": "Johnny Walker",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1719066409651_20220331052417_Johnny_Walker_ff.JPG",
+      "opponent_record": "21-9-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220930114859_Azamat_Murzakanov_ff.JPG"
   },
   {
     "name": "Mario Pinto",
@@ -455,7 +507,8 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Mario-Pinto-310173",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1724952233Mario_Pinto.jpg"
   },
   {
     "name": "Tallison Teixeira",
@@ -472,8 +525,11 @@
       "event": "UFC Fight Night",
       "date": "2025-07-12",
       "location": "Bridgestone Arena , Nashville, Tennessee, United States",
-      "opponent": "Derrick Lewis"
-    }
+      "opponent": "Derrick Lewis",
+      "opponent_image_url": "https://www.sherdog.com/image_crop/72/72/_images/fighter/1648259808942_20220325095644_Derrick_Lewis_ff.JPG",
+      "opponent_record": "28-12-0"
+    },
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/1726597228talisson.jpg"
   },
   {
     "name": "Jailton Almeida",
@@ -486,6 +542,7 @@
     },
     "website": "sherdog",
     "url": "https://www.sherdog.com/fighter/Jailton-Almeida-114657",
-    "next_fight": null
+    "next_fight": null,
+    "image_url": "https://www.sherdog.com/image_crop/200/300/_images/fighter/20220929082855_Jailton_Almeida_ff.JPG"
   }
 ]
